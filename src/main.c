@@ -24,6 +24,6 @@ int main(void)
     
         putchar('\n');
     }
-    getchar();
+    scanf("%d", &rows);
     return 0;
 }
