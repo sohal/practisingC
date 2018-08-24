@@ -18,17 +18,19 @@ You may need to remove CMakeCache.txt and CMakeFiles.
     message(FATAL_ERROR "aborting")
 endif()
 
-project( "PyramidInC")
+project( "CExcercises")
 
-set( EXECUTABLE_NAME "${PROJECT_NAME}.out" )
+set( PYRAMID_EXE    "pyramid.out" )
+set( VALLEY_EXE     "valley.out" )
 
 enable_language( C )
 
-set( SRC_ROOT_FILES
-    ${CMAKE_SOURCE_DIR}/src/main.c
+add_executable(
+    ${PYRAMID_EXE}
+    ${CMAKE_SOURCE_DIR}/src/pyramid.c
 )
 
 add_executable(
-    ${EXECUTABLE_NAME}
-    ${SRC_ROOT_FILES}
+    ${VALLEY_EXE}
+    ${CMAKE_SOURCE_DIR}/src/valley.c
 )
