@@ -1,7 +1,5 @@
 
 cmake_minimum_required( VERSION 3.10 )
-# best practices CMake:
-# http://de.slideshare.net/DanielPfeifer1/cmake-48475415
 #################################################################
 # Check for in-source build
 #################################################################
@@ -22,6 +20,7 @@ project( "CExcercises")
 
 set( PYRAMID_EXE    "pyramid.out" )
 set( VALLEY_EXE     "valley.out" )
+set( PRIME_EXE      "prime.out" )
 
 enable_language( C )
 
@@ -33,4 +32,9 @@ add_executable(
 add_executable(
     ${VALLEY_EXE}
     ${CMAKE_SOURCE_DIR}/src/valley.c
+)
+
+add_executable(
+    ${PRIME_EXE}
+    ${CMAKE_SOURCE_DIR}/src/prime.c
 )
