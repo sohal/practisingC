@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/sohal/practisingC.svg?branch=master)](https://travis-ci.com/sohal/practisingC)
+
 # Pyramid in C (Excercise in C)
 ### pyramid.c
 - Program to print a pyramid of stars in C.
