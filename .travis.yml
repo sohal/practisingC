@@ -1,0 +1,13 @@
+language: c
+compiler: 
+- gcc
+os:
+- linux
+before_install:
+- echo $LANG
+- echo $LC_ALL
+addons:
+  apt:
+    packages:
+    - cmake-data
+    - cmake
