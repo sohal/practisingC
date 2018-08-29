@@ -1,9 +1,16 @@
 language: c
 compiler: 
 - gcc
+sudo: false
 os:
 - linux
 
 script:
 - cmake -H. -Bbuild
 - cmake --build build --
+- gcov src/pyramid.c
+- gcov src/hello.c
+- gcov src/prime.c
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
