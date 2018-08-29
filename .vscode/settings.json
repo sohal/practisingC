@@ -1,1 +1,4 @@
-{}
+{
+    "travis.repository": "https://travis-ci.com/sohal/practicisingC",
+    "travis.username": "sohal"
+}
