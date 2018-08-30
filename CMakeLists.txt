@@ -76,3 +76,7 @@ set_tests_properties( test_PrimeUsage PROPERTIES PASS_REGULAR_EXPRESSION "")
 
 add_test( test_Prime1 ${CMAKE_CURRENT_BINARY_DIR}/prime.out 1)
 set_tests_properties( test_Prime1 PROPERTIES PASS_REGULAR_EXPRESSION "")
+
+add_test( test_Primetext ${CMAKE_CURRENT_BINARY_DIR}/prime.out sohal)
+set_tests_properties( test_Primetext PROPERTIES PASS_REGULAR_EXPRESSION "")
+
