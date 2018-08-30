@@ -12,20 +12,19 @@ To perform an out-of-source build,
 - mkdir Build; cd Build; cmake ..
 You may need to remove CMakeCache.txt and CMakeFiles.
     " )
-    message( FATAL_ERROR "aborting" )
+    message(FATAL_ERROR "aborting")
 endif()
 
 project( "CExcercises")
-include( CTest )
+include(CTest)
 
-set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -O0 -Wall -fprofile-arcs -ftest-coverage" )
-set( CMAKE_C_OUTPUT_EXTENSION_REPLACE ON )
-set( OBJECT_DIR ${CMAKE_BINARY_DIR}/CMakeFiles/prime.out.dir/src )
-set( PYRAMID_EXE        "pyramid.out" )
-set( VALLEY_EXE         "valley.out" )
-set( PRIME_EXE          "prime.out" )
-set( PALLINDROME_EXE    "pallindrome.out" )
-
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -O0 -Wall -fprofile-arcs -ftest-coverage")
+set(CMAKE_C_OUTPUT_EXTENSION_REPLACE ON)
+set(OBJECT_DIR ${CMAKE_BINARY_DIR}/CMakeFiles/prime.out.dir/src)
+set( PYRAMID_EXE    "pyramid.out" )
+set( VALLEY_EXE     "valley.out" )
+set( PRIME_EXE      "prime.out" )
+set( PALINDROME_EXE "palindrome.out")
 enable_language( C )
 
 add_executable(
@@ -43,10 +42,12 @@ add_executable(
     ${CMAKE_SOURCE_DIR}/src/prime.c
 )
 
+
 add_executable(
-    ${PALLINDROME_EXE}
-    ${CMAKE_SOURCE_DIR}/src/pallindrome.c
+    ${PALINDROME_EXE}
+    ${CMAKE_SOURCE_DIR}/src/palindrome.c
 )
+
 
 add_custom_target(gcov
     COMMAND mkdir -p coverage
@@ -55,7 +56,7 @@ add_custom_target(gcov
 )
 
 add_custom_command(TARGET gcov
-    COMMAND echo "\n============================== GCOV ==============================\n"
+    COMMAND echo "--------------------GCOV----------------------"
     COMMAND gcov ${CMAKE_SOURCE_DIR}/src/prime.c -o ${OBJECT_DIR} | grep -A 5 "prime.c" > CoverageSummary.tmp
     COMMAND cat CoverageSummary.tmp
     COMMAND echo "-- Coverage Files have been output to ${CMAKE_BINARY_DIR}/coverage"
@@ -85,4 +86,3 @@ set_tests_properties( test_Prime1 PROPERTIES PASS_REGULAR_EXPRESSION "")
 
 add_test( test_Primetext ${CMAKE_CURRENT_BINARY_DIR}/prime.out sohal)
 set_tests_properties( test_Primetext PROPERTIES PASS_REGULAR_EXPRESSION "")
-
