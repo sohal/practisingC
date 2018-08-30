@@ -68,5 +68,8 @@ add_custom_target(scrub
 
 enable_testing()
 
-add_test( test_Prime ${CMAKE_CURRENT_BINARY_DIR}/prime.out 5)
-set_tests_properties(test_Prime PROPERTIES PASS_REGULAR_EXPRESSION ":2::3::5:")
+add_test( test_PrimeOK ${CMAKE_CURRENT_BINARY_DIR}/prime.out 5)
+set_tests_properties(test_PrimeOK PROPERTIES PASS_REGULAR_EXPRESSION ":2::3::5:")
+
+add_test( test_PrimeUsage ${CMAKE_CURRENT_BINARY_DIR}/prime.out)
+set_tests_properties( test_PrimeUsage PROPERTIES PASS_REGULAR_EXPRESSION "")
