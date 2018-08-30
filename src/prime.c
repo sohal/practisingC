@@ -27,16 +27,6 @@ int main(int argc, char *argv[])
         convResult = strtoll(argv[1], (char ** __restrict__ )eptr, 10);
         if(convResult == 0U)
         {
-            /* If a conversion error occurred, display a message and exit */
-            if (errno == EINVAL)
-            {
-                printf("Conversion error occurred: %d\n", errno);
-            }
-
-            /* If the value provided was out of range, display a warning message */
-            if (errno == ERANGE)
-                printf("The value provided was out of range\n");
-
             exit(0);
         }
         integer = convResult;
