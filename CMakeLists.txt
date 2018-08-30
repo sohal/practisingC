@@ -12,18 +12,19 @@ To perform an out-of-source build,
 - mkdir Build; cd Build; cmake ..
 You may need to remove CMakeCache.txt and CMakeFiles.
     " )
-    message(FATAL_ERROR "aborting")
+    message( FATAL_ERROR "aborting" )
 endif()
 
 project( "CExcercises")
-include(CTest)
+include( CTest )
 
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -O0 -Wall -fprofile-arcs -ftest-coverage")
-set(CMAKE_C_OUTPUT_EXTENSION_REPLACE ON)
-set(OBJECT_DIR ${CMAKE_BINARY_DIR}/CMakeFiles/prime.out.dir/src)
-set( PYRAMID_EXE    "pyramid.out" )
-set( VALLEY_EXE     "valley.out" )
-set( PRIME_EXE      "prime.out" )
+set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -O0 -Wall -fprofile-arcs -ftest-coverage" )
+set( CMAKE_C_OUTPUT_EXTENSION_REPLACE ON )
+set( OBJECT_DIR ${CMAKE_BINARY_DIR}/CMakeFiles/prime.out.dir/src )
+set( PYRAMID_EXE        "pyramid.out" )
+set( VALLEY_EXE         "valley.out" )
+set( PRIME_EXE          "prime.out" )
+set( PALLINDROME_EXE    "pallindrome.out" )
 
 enable_language( C )
 
@@ -42,6 +43,11 @@ add_executable(
     ${CMAKE_SOURCE_DIR}/src/prime.c
 )
 
+add_executable(
+    ${PALLINDROME_EXE}
+    ${CMAKE_SOURCE_DIR}/src/pallindrome.c
+)
+
 add_custom_target(gcov
     COMMAND mkdir -p coverage
     COMMAND ${CMAKE_MAKE_PROGRAM} test
@@ -49,7 +55,7 @@ add_custom_target(gcov
 )
 
 add_custom_command(TARGET gcov
-    COMMAND echo "--------------------GCOV----------------------"
+    COMMAND echo "\n============================== GCOV ==============================\n"
     COMMAND gcov ${CMAKE_SOURCE_DIR}/src/prime.c -o ${OBJECT_DIR} | grep -A 5 "prime.c" > CoverageSummary.tmp
     COMMAND cat CoverageSummary.tmp
     COMMAND echo "-- Coverage Files have been output to ${CMAKE_BINARY_DIR}/coverage"
