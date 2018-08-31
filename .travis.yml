@@ -9,7 +9,7 @@ script:
 - cmake -H. -Bbuild
 - cmake --build build --
 - cd ./build
-- make gcov
+- make gcov_prime
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)

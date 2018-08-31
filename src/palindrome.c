@@ -1,34 +1,30 @@
-#include <stdio.h>
-#include <errno.h>
-#include <stdlib.h>
+#include "palindrome.h"
 
-unsigned int stringSize(char* src)
+uint32_t stringSize(char* src)
 {
     char* ptr = src;
     while(*ptr++);
     return(ptr-src);
 }
 
-unsigned int strCompare(char *start, char *end)
+uint32_t strCompare(char *start, char *end)
 {
     if(*start == *end)
     {
         if((start == end) || ((start + 1U) == end))
         {
-            return( 1 );
+            return( 1U );
         }
         return(strCompare(start + 1, end - 1));
     }else
     {
-        return( 0 );
+        return( 0U );
     }
 }
 
- 
-
 int main(int argc, char *argv[])
 {
-    unsigned int strSize;
+    uint32_t strSize;
 
     printf("Program name: %s\n", __BASE_FILE__);
     if(2 == argc)
