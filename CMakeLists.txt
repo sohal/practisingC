@@ -20,7 +20,6 @@ include(CTest)
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -O0 -Wall -fprofile-arcs -ftest-coverage")
 set(CMAKE_C_OUTPUT_EXTENSION_REPLACE ON)
-set(OBJECT_DIR ${CMAKE_BINARY_DIR}/CMakeFiles/prime.out.dir/src)
 enable_language( C )
 
 # Subdirectory
