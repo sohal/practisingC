@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.com/sohal/practisingC.svg?branch=master)](https://travis-ci.com/sohal/practisingC)
 [![codecov.io](http://codecov.io/github/sohal/practisingC/coverage.svg?branch=master)](http://codecov.io/github/sohal/practisingC?branch=master)
-
+[![codecov](https://codecov.io/gh/sohal/practisingC/branch/master/graph/badge.svg)](https://codecov.io/gh/sohal/practisingC)
 # Excercise in C
 ### pyramid.c
 - Program to print a pyramid of stars in C.
