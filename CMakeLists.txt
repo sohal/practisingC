@@ -10,7 +10,7 @@ In-source builds are disallowed. They are a source of infinite pain,
 - overwriting the root Makefile (which contains cleaninsourcebuild)
 To perform an out-of-source build,
 - mkdir Build; cd Build; cmake ..
-You may need to remove CMakeCache.txt and CMakeFiles.
+You may need to remove CMakeCache.txt and CMakeFiles. Sohal
     " )
     message(FATAL_ERROR "aborting")
 endif()
