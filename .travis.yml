@@ -5,11 +5,29 @@ sudo: false
 os:
 - linux
 
+addons:
+        apt:
+                sources:
+                        - ubuntu-toolchain-r-test
+                packages:
+                        - wget
+                        - pkg-config
+before_install:
+        - sudo apt install curl gnupg
+        - curl -fsSL https://bazel.build/bazel-release.pub.gpg | gpg --dearmor > bazel.gpg
+
+        - sudo mv bazel.gpg /etc/apt/trusted.gpg.d/
+        - echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list 
+        - sudo apt update && sudo apt install bazel
+
+
 script:
 - cmake -H. -Bbuild
 - cmake --build build --
 - cd ./build
 - make gcov_prime
+- cd ..
+- bazel build //src/...
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
